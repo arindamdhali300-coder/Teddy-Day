@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Talking Teddy – Teddy Day Special</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Quicksand', 'sans-serif'],
+              display: ['Fredoka', 'sans-serif'],
+            },
+            colors: {
+              teddy: {
+                light: '#F4C886',
+                DEFAULT: '#E6B065',
+                dark: '#8B5E3C',
+                snout: '#FFF5E6',
+              }
+            },
+            animation: {
+              'float': 'float 4s ease-in-out infinite',
+              'wiggle': 'wiggle 1s ease-in-out infinite',
+              'bounce-soft': 'bounceSoft 2s infinite',
+              'shiver': 'shiver 0.2s ease-in-out infinite',
+              'breathe': 'breathe 4s ease-in-out infinite',
+              'ear-wiggle-left': 'earWiggleLeft 4s ease-in-out infinite',
+              'ear-wiggle-right': 'earWiggleRight 5s ease-in-out infinite',
+              'hand-wave': 'handWave 3s ease-in-out infinite',
+              'slap-left-snap': 'slapLeftSnap 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards',
+              'slap-right-snap': 'slapRightSnap 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards',
+              'impact-shake': 'impactShake 0.3s cubic-bezier(.36,.07,.19,.97) both',
+              'scale-in': 'scaleIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'pop-in': 'popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
+              'fade-out': 'fadeOut 0.5s ease-out forwards',
+              'flash': 'flash 0.1s ease-out',
+              // New Shower Animations
+              'rain': 'rain 0.8s linear infinite',
+              'bubble': 'bubble 2s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-6px)' },
+              },
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              },
+              bounceSoft: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              },
+              shiver: {
+                '0%, 100%': { transform: 'translateX(-2px)' },
+                '50%': { transform: 'translateX(2px)' },
+              },
+              breathe: {
+                '0%, 100%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.02)' },
+              },
+              earWiggleLeft: {
+                '0%, 90%, 100%': { transform: 'rotate(0deg)' },
+                '95%': { transform: 'rotate(-10deg)' },
+              },
+              earWiggleRight: {
+                '0%, 90%, 100%': { transform: 'rotate(0deg)' },
+                '95%': { transform: 'rotate(10deg)' },
+              },
+              handWave: {
+                '0%, 100%': { transform: 'rotate(0deg)' },
+                '50%': { transform: 'rotate(5deg)' },
+              },
+              slapLeftSnap: {
+                 '0%': { transform: 'rotate(0deg) translateX(0)' },
+                 '10%': { transform: 'rotate(25deg) translateX(15px)' },
+                 '20%': { transform: 'rotate(20deg) translateX(10px)' },
+                 '40%': { transform: 'rotate(22deg) translateX(12px)' },
+                 '100%': { transform: 'rotate(0deg) translateX(0)' }
+              },
+              slapRightSnap: {
+                 '0%': { transform: 'rotate(0deg) translateX(0)' },
+                 '10%': { transform: 'rotate(-25deg) translateX(-15px)' },
+                 '20%': { transform: 'rotate(-20deg) translateX(-10px)' },
+                 '40%': { transform: 'rotate(-22deg) translateX(-12px)' },
+                 '100%': { transform: 'rotate(0deg) translateX(0)' }
+              },
+              impactShake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              popIn: {
+                '0%': { transform: 'scale(0.5)', opacity: '0' },
+                '80%': { transform: 'scale(1.1)', opacity: '1' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              fadeOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              flash: {
+                '0%': { opacity: '1', transform: 'scale(1.5)' },
+                '100%': { opacity: '0', transform: 'scale(1)' },
+              },
+              rain: {
+                '0%': { transform: 'translateY(-50px)', opacity: '0' },
+                '30%': { opacity: '0.8' },
+                '90%': { opacity: '0.8' },
+                '100%': { transform: 'translateY(250px)', opacity: '0' },
+              },
+              bubble: {
+                '0%': { transform: 'translateY(0) scale(0.3)', opacity: '0' },
+                '20%': { opacity: '0.6' },
+                '80%': { opacity: '0.6' },
+                '100%': { transform: 'translateY(-150px) scale(1.2)', opacity: '0' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior: none;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .dark .glass-panel {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .impact-star {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="transition-colors duration-500">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
